@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000; /* Change background color to black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0; /* Initially set the opacity to 0 to hide the content */
+  transition: opacity 6s ease; /* Make the fade-in slower (6 seconds) and use ease transition */
+  position: relative; /* Add relative positioning to the body */
+}
+
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff4081, #ff8c00, #ffeb3b, #4caf50, #2196f3, #9c27b0);
+  background-size: 400% 400%;
+  animation: gradientAnimation 6s ease infinite;
+  z-index: 1; /* Place the background animation above the content */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Stack elements vertically */
+  position: relative;
+  z-index: 2; /* Ensure elements in the container are above the background */
+}
+
+/* Style for the header text */
+.header {
+  margin-top: -50px; /* Move the header up by 50px */
+  position: relative;
+  z-index: 4; /* Place the header text above the background animation */
+}
+
+.header-text {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #fff; /* Text color set to white */
+  font-family: 'Your Cool Font', sans-serif; /* Specify your cool font */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Add a strong drop shadow to the text */
+}
+
+.menu {
+  width: 200px; /* Adjust the width to make the menu smaller */
+  padding: 15px; /* Adjust the padding to make the buttons and font smaller */
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 3;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: block;
+}
+
+/* Create a gap between buttons */
+.menu-gap {
+  margin: 10px 0; /* Adjust the margin as needed to create the desired gap */
+}
+
+.menu a {
+  display: block;
+  padding: 8px; /* Adjust the padding to make the buttons smaller */
+  background-color: #eaeaea;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  font-size: 14px; /* Adjust the font size to make the font smaller */
+}
+
+.menu a:hover {
+  background-color: #ccc;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* CSS to fade-in content when the page is loaded */
+body.loaded {
+  opacity: 1;
+}
